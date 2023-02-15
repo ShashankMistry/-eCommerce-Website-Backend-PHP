@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "cca87164-c449-4b46-b108-00f4ea5f8994",
+		"name": "ASSIGNMENT2_GROUP8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19235707"
+	},
+	"item": [
+		{
+			"name": "GET REQUEST FOR PRODUCTS ENDPOINT",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
