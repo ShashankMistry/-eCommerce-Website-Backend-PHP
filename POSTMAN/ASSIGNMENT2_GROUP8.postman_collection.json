@@ -115,6 +115,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "DELETE REQUEST WITH WRONG ENDPOINT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eCommerce-Website-Backend-PHP",
+						"index.php",
+						"delete",
+						"product"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
