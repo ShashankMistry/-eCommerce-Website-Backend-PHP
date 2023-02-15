@@ -13,6 +13,36 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "POST REQUEST FOR PRODUCT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"description\": \"description\",\r\n    \"details\": \"details\",\r\n    \"image\": \"image\",\r\n    \"price\": 12.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/post/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eCommerce-Website-Backend-PHP",
+						"index.php",
+						"post",
+						"products"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

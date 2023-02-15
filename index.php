@@ -1,28 +1,13 @@
 <?php
 
-$host = "localhost";
-$dbname = "assignment2_group8";
-$username = "root";
-$password = "";
+require_once 'Connection.php';
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
 
-// Query the database to retrieve product data
-// $stmt = $conn->prepare("SELECT * FROM product");
-// $stmt->execute();
-// $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $products = [];
-//fetch data only when endpoint is products
-// Get the endpoint from the URL
+
 $endpoint = $_SERVER['REQUEST_URI'];
 
-// Check if the endpoint is present in the URL
-//check if it is GET request
+
 if (strpos($endpoint, '/products') !== false && $_SERVER['REQUEST_METHOD'] == 'GET') {
 
     // Fetch data from the endpoint
@@ -32,7 +17,23 @@ if (strpos($endpoint, '/products') !== false && $_SERVER['REQUEST_METHOD'] == 'G
     echo json_encode($products, JSON_PRETTY_PRINT);
     // Process the data as needed
     // ...
+} elseif (strpos($endpoint, '/post/products') !== false && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Fetch data from the endpoint
 
+    $JSON = file_get_contents('php://input');
+    $data = json_decode($JSON, true);
+    $_POST = $data;
+    $stmt = $conn->prepare("INSERT INTO product (name, description, details, image, price) 
+    VALUES (:name, :description, :details, :image, :price)");
+    
+    $stmt->bindParam(':name', $_POST['name']);
+    $stmt->bindParam(':description', $_POST['description']);
+    $stmt->bindParam(':details', $_POST['details']);
+    $stmt->bindParam(':image', $_POST['image']);
+    $stmt->bindParam(':price', $_POST['price']);
+
+    $stmt->execute();
+    echo json_encode("New record created successfully");
 } else {
     // Return an error message
     echo json_encode("Error: Endpoint not found");
