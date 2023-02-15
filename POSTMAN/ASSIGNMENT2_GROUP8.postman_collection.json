@@ -10,7 +10,19 @@
 			"name": "GET REQUEST FOR PRODUCTS ENDPOINT",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eCommerce-Website-Backend-PHP",
+						"index.php",
+						"products"
+					]
+				}
 			},
 			"response": []
 		},
@@ -38,6 +50,66 @@
 						"eCommerce-Website-Backend-PHP",
 						"index.php",
 						"post",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE REQUEST FOR PRODUCT TABLE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eCommerce-Website-Backend-PHP",
+						"index.php",
+						"delete",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"nameUpdated\",\r\n    \"description\": \"descriptionUpdated\",\r\n    \"details\": \"detailsUpdated\",\r\n    \"image\": \"imageUpdated\",\r\n    \"price\": 12.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/update/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eCommerce-Website-Backend-PHP",
+						"index.php",
+						"update",
 						"products"
 					]
 				}
