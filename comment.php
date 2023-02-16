@@ -59,3 +59,18 @@ elseif (strpos($endpoint, '/post/comments') !== false && $_SERVER['REQUEST_METHO
     $stmt->execute();
     echo json_encode("New record created successfully");
 }
+//delete specific comment using product id and email also id
+elseif (strpos($endpoint, '/delete/comments') !== false && $_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    $JSON = file_get_contents('php://input');
+    $data = json_decode($JSON, true);
+    $_POST = $data;
+    $stmt = $conn->prepare("DELETE FROM comment WHERE productId = :productId AND email = :email AND id = :id");
+    $stmt->bindParam(':productId', $_POST['productId']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':id', $_POST['id']);
+    $stmt->execute();
+    echo json_encode("Record deleted successfully with ID: " . $_POST['id'] );
+}
+
+$conn = null;
+
