@@ -22,7 +22,29 @@ if (strpos($endpoint, '/users') !== false && $_SERVER['REQUEST_METHOD'] == 'GET'
     $stmt->bindParam(':address', $_POST['address']);
     $stmt->execute();
     echo json_encode("New record created successfully");
-} 
+} elseif (strpos($endpoint, '/delete/users') !== false && $_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    $JSON = file_get_contents('php://input');
+    $data = json_decode($JSON, true);
+    $_POST = $data;
+    $stmt = $conn->prepare("DELETE FROM users WHERE id = :id");
+    $stmt->bindParam(':id', $_POST['id']);
+    $stmt->execute();
+    echo json_encode("Record deleted successfully with ID: " . $_POST['id'] );
+} elseif (strpos($endpoint, '/update/users') !== false && $_SERVER['REQUEST_METHOD'] == 'PUT') {
+    $JSON = file_get_contents('php://input');
+    $data = json_decode($JSON, true);
+    $_POST = $data;
+    $stmt = $conn->prepare("UPDATE users SET fName = :fName, lName = :lName, email = :email, pass = :password, address = :address WHERE id = :id");
+
+$stmt->bindParam(':id', $_POST['id']);
+$stmt->bindParam(':fName', $_POST['fName']);
+$stmt->bindParam(':lName', $_POST['lName']);
+$stmt->bindParam(':email', $_POST['email']);
+$stmt->bindParam(':password', $_POST['pass']);
+$stmt->bindParam(':address', $_POST['address']);
+$stmt->execute();
+    echo json_encode("Record updated successfully");
+}
 
 $conn = null;
 ?>
