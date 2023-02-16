@@ -7,144 +7,328 @@
 	},
 	"item": [
 		{
-			"name": "GET REQUEST FOR PRODUCTS ENDPOINT",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"eCommerce-Website-Backend-PHP",
-						"index.php",
-						"products"
-					]
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "GET REQUEST FOR PRODUCTS ENDPOINT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"index.php",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST REQUEST FOR PRODUCT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"description\": \"description\",\r\n    \"details\": \"details\",\r\n    \"image\": \"image\",\r\n    \"price\": 12.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/post/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"index.php",
+								"post",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE REQUEST FOR PRODUCT TABLE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"index.php",
+								"delete",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT REQUEST FOR PRODUCT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"nameUpdated\",\r\n    \"description\": \"descriptionUpdated\",\r\n    \"details\": \"detailsUpdated\",\r\n    \"image\": \"imageUpdated\",\r\n    \"price\": 12.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/update/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"index.php",
+								"update",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE REQUEST WITH WRONG ENDPOINT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"index.php",
+								"delete",
+								"product"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "POST REQUEST FOR PRODUCT",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"name\",\r\n    \"description\": \"description\",\r\n    \"details\": \"details\",\r\n    \"image\": \"image\",\r\n    \"price\": 12.0\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "USERS",
+			"item": [
+				{
+					"name": "POST REQUEST FOR USERS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fName\" : \"Shashank\",\r\n    \"lName\" : \"Mistry\",\r\n    \"email\" : \"sha@gmail.com\",\r\n    \"password\" : \"111111\",\r\n    \"address\" : \"kitchenr, ON\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/users.php/post/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"users.php",
+								"post",
+								"users"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/post/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"eCommerce-Website-Backend-PHP",
-						"index.php",
-						"post",
-						"products"
-					]
+				{
+					"name": "GET REQUEST FOR USER",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE REQUEST FOR USERS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/users.php/delete/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"users.php",
+								"delete",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT REQUEST FOR USERS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\",\r\n    \"fName\": \"ShashankUpdated\",\r\n    \"lName\": \"MistryUpdated\",\r\n    \"email\": \"sha@gmail.com\",\r\n    \"pass\": \"111333\",\r\n    \"address\": \"Kitchener, ON\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/users.php/update/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"users.php",
+								"update",
+								"users"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "DELETE REQUEST FOR PRODUCT TABLE",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 4\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "COMMENT",
+			"item": [
+				{
+					"name": "POST REQUEST FOR COMMENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : \"23\",\r\n    \"email\" : \"sha@gmail.com3\",\r\n    \"rating\" : 3,\r\n    \"review\" : \"xyz3\",\r\n    \"image\" : \"image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/comment.php/post/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"comment.php",
+								"post",
+								"comments"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"eCommerce-Website-Backend-PHP",
-						"index.php",
-						"delete",
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"nameUpdated\",\r\n    \"description\": \"descriptionUpdated\",\r\n    \"details\": \"detailsUpdated\",\r\n    \"image\": \"imageUpdated\",\r\n    \"price\": 12.0\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "GET COMMENTS FOR PERTICULAR PRODUCT ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GET COMMENTS FOR PERTICULAR USER WITH EMAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sha@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/comment.php/email/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"comment.php",
+								"email",
+								"comments"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/update/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"eCommerce-Website-Backend-PHP",
-						"index.php",
-						"update",
-						"products"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE REQUEST WITH WRONG ENDPOINT",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 4\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost/eCommerce-Website-Backend-PHP/index.php/delete/product",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"eCommerce-Website-Backend-PHP",
-						"index.php",
-						"delete",
-						"product"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
