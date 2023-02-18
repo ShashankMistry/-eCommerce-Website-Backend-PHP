@@ -9,6 +9,33 @@ if (strpos($endpoint, '/users') !== false && $_SERVER['REQUEST_METHOD'] == 'GET'
     $stmt->execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($users, JSON_PRETTY_PRINT);
+    //get history of orders by user id
+} elseif (
+    strpos($endpoint, '/orders/purchase_hitstory') !== false && $_SERVER['REQUEST_METHOD'] == 'GET'
+){
+    $id = $_GET['id'];
+    try {
+        $stmt = $conn->prepare("SELECT * FROM orders WHERE email = :id AND productId = :product_id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($orders, JSON_PRETTY_PRINT);
+    } catch (PDOException $e) {
+        http_response_code(400); // Return a 400 error
+        echo "Error: something went wrong";
+        // Handle other types of exceptions
+    }
+    //get all orders from email
+} elseif (
+    strpos($endpoint, '/orders/email') !== false && $_SERVER['REQUEST_METHOD'] == 'GET'
+){
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($orders, JSON_PRETTY_PRINT);
+
 } elseif (strpos($endpoint, '/post/users') !== false && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $JSON = file_get_contents('php://input');
     $data = json_decode($JSON, true);
