@@ -251,6 +251,14 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GET ORDER HISTORY",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -325,6 +333,173 @@
 								"comments"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ORDERS",
+			"item": [
+				{
+					"name": "GET REQUEST FOR ORDERS TABLE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "PUT REQUEST FOR ORDER TABLE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\" : \"nameUpdate\",\r\n    \"productId\" : 3,\r\n    \"name\" : \"name\",\r\n    \"email\" : \"sha@gmail.com\",\r\n    \"total\" : 2.3,\r\n    \"quantity\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/order.php/update/orders?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"order.php",
+								"update",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE FOR ORDER TABLE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/order.php/delete/orders?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"order.php",
+								"delete",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST FOR ORDER TABLE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CART",
+			"item": [
+				{
+					"name": "GET REQUEST FOR CART TABLE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "POST REQUEST FOR CART",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 2,\r\n    \"name\" : \"cart\",\r\n    \"price\" : 4,\r\n    \"image\": \"image\",\r\n    \"email\" : \"cart@gmail.com\",\r\n    \"quantity\" : 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/cart.php/post/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"cart.php",
+								"post",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT REQUEST FOR CART",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 2,\r\n    \"quantity\" : 5,\r\n    \"email\" : \"cart@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/eCommerce-Website-Backend-PHP/cart.php/post/cart/update/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"eCommerce-Website-Backend-PHP",
+								"cart.php",
+								"post",
+								"cart",
+								"update",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE REQUEST FOR CART",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}

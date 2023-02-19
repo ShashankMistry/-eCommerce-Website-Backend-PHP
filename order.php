@@ -18,22 +18,25 @@ if (strpos($endpoint, 'GET/orders') !== false && $_SERVER['REQUEST_METHOD'] == '
 }
 //update orders
 elseif (strpos($endpoint, '/update/orders') !== false && $_SERVER['REQUEST_METHOD'] == 'PUT') {
+    $id = $_GET['id'];
     $JSON = file_get_contents('php://input');
     $data = json_decode($JSON, true);
     $_POST = $data;
-    $stmt = $conn->prepare("UPDATE orders SET status = :status WHERE id = :id");
-    $stmt->bindParam(':status', $_POST['status']);
-    $stmt->bindParam(':id', $_POST['id']);
+    //order table contains productName , productId, name, email,  total, quantity
+    $stmt = $conn->prepare("UPDATE orders SET productName = :productName, productId = :productId, name = :name, email = :email, total = :total, quantity = :quantity WHERE id = $id");
+    $stmt->bindParam(':productName', $_POST['productName']);
+    $stmt->bindParam(':productId', $_POST['productId']);
+    $stmt->bindParam(':name', $_POST['name']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':total', $_POST['total']);
+    $stmt->bindParam(':quantity', $_POST['quantity']);
     $stmt->execute();
     echo json_encode("Record updated successfully");
 }
 //delete orders
 elseif (strpos($endpoint, '/delete/orders') !== false && $_SERVER['REQUEST_METHOD'] == 'DELETE') {
-    $JSON = file_get_contents('php://input');
-    $data = json_decode($JSON, true);
-    $_POST = $data;
-    $stmt = $conn->prepare("DELETE FROM orders WHERE id = :id");
-    $stmt->bindParam(':id', $_POST['id']);
+    $id = $_GET['id'];
+    $stmt = $conn->prepare("DELETE FROM orders WHERE id = $id");
     $stmt->execute();
     echo json_encode("Record deleted successfully");
 }
